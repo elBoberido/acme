@@ -1,0 +1,78 @@
+name: Bug Report
+description: Create a report to help us improve
+labels: ["bug"]
+body:
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Before posting the bug
+      description: Some steps to check before creating the bug report in order to reduce the load of the maintainer
+      options:
+        - label: I checked the [FAQ](https://github.com/eclipse-iceoryx/iceoryx2/blob/main/FAQ.md) for a possible solution
+          required: true
+        - label: I checked the existing issues for duplicates or related issue.
+          required: true
+
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+      description: |
+        * Additionally, on Linux, macOS, Unix, output of: `uname -a`
+        * Additionally, on Windows, output of: `ver`
+      placeholder: OS name, version
+    validations:
+      required: true
+
+  - type: input
+    id: rust-version
+    attributes:
+      label: Rust version
+      placeholder: |
+        Output of: `rustc --version`
+    validations:
+      required: true
+
+  - type: input
+    id: cargo-version
+    attributes:
+      label: Cargo version
+      placeholder: |
+        Output of: `cargo --version`
+    validations:
+      required: true
+
+  - type: input
+    id: iceoryx2-version
+    attributes:
+      label: iceoryx2 version
+      placeholder: E.g. v0.1.2 or main
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed-behavior-and-steps-to-reproduce
+    attributes:
+      label: Observed behavior and steps to repoduce
+      description: |
+        A minimalistic running code example that reproduces the bug or a clear and precise description of the observed result.
+        Describe how one can reproduce the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: |
+        What do you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: detailed-log-output
+    attributes:
+      label: Detailed log output
+      placeholder: |
+        Add the call `set_log_level(LogLevel::Trace)` at the beginning of your application and attach the detailed log-output to the bug ticket.
